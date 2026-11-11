@@ -22,7 +22,7 @@ else
 	lib = {} -- standalone fallback: no LibStub present, expose one global
 	_G[MAJOR] = lib
 end
-lib.MAJOR, lib.MINOR, lib.VERSION = MAJOR, MINOR, "1.0.0"
+lib.MAJOR, lib.MINOR, lib.VERSION = MAJOR, MINOR, "1.0.1"
 -- Localized globals (upvalues, faster and taint-safe).
 local type, pcall, pairs, error, tostring, tonumber = type, pcall, pairs, error, tostring, tonumber
 local setmetatable, geterrorhandler = setmetatable, geterrorhandler

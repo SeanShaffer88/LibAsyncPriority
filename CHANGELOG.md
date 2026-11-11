@@ -3,7 +3,14 @@
 All notable changes to LibAsyncPriority are recorded here.
 Format follows Keep a Changelog; versions use semantic versioning.
 
-## [Unreleased]
+## [1.0.1] - 2026-11-10
+
+### Fixed
+
+- `.toc` interface corrected from 11507 (Classic Era) to **16001**, the
+  WoW Classic Forever client. The 1.0.0 build was marked out of date by
+  the Forever client and never loaded, so its slash commands did
+  nothing. The library code is unchanged apart from the version string.
 
 ### Added
 

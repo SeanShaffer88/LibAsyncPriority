@@ -1,6 +1,6 @@
 # LibAsyncPriority — Features
 
-Version 1.0.0 · WoW Classic Forever · Interface 11507
+Version 1.0.0 · WoW Classic Forever · Interface 16001
 
 ## Scheduling
 

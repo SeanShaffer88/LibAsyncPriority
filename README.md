@@ -5,16 +5,16 @@
 ## TL;DR
 
 **LibAsyncPriority-1.0** is a small library for **WoW Classic Forever**
-(Interface **11507**) that runs heavy addon work a little at a time, spread
+(Interface **16001**) that runs heavy addon work a little at a time, spread
 across frames, so the game stays responsive. Tasks run by priority —
 **high** first, then **normal**, then **low** — under a per-frame time
 budget (5 ms by default), and any task can be cancelled. Use it embedded in
-your addon through LibStub, or install it standalone. Version **1.0.0**,
+your addon through LibStub, or install it standalone. Version **1.0.1**,
 MIT license, no dependencies.
 
 **Docs:** [Features](FEATURES.md) · [Description](DESCRIPTION.md) · [Changelog](CHANGELOG.md)
 
-**Requirements:** a WoW Classic Forever client (Interface **11507**).
+**Requirements:** a WoW Classic Forever client (Interface **16001**).
 Nothing else — no other addons, no libraries to install first; LibStub is
 bundled for standalone use and steps aside when a newer LibStub is
 already loaded.
@@ -172,7 +172,7 @@ built-in self-test described below.
 
 ### Version
 
-`LAP.VERSION` is `"1.0.0"`; `LAP.MAJOR` is `"LibAsyncPriority-1.0"` and
+`LAP.VERSION` is `"1.0.1"`; `LAP.MAJOR` is `"LibAsyncPriority-1.0"` and
 `LAP.MINOR` is the LibStub minor version.
 
 ## Examples
@@ -385,8 +385,11 @@ place.
 
 ## Compatibility notes (Classic Forever)
 
-- Targets **Interface 11507** (Classic Era 1.15.7 line, the Classic
-  Forever client). The library uses only APIs present there: `GetTime`,
+- Targets **Interface 16001**, the WoW Classic Forever client (game
+  version 1.60.1) — the same interface number as BuffRadar, Rummage, and
+  the other Forever addons. (Version 1.0.0 shipped with 11507, the
+  Classic Era number, and the Forever client refused to load it; 1.0.1
+  corrects this.) The library uses only APIs present there: `GetTime`,
   `debugprofilestop`, `CreateFrame`, `SlashCmdList`, and the `C_Container`
   namespace in the examples.
 - **No deprecated or removed APIs**, no `this`/`arg` globals, no XML
@@ -397,9 +400,11 @@ place.
   entries the slash-command system requires.
 - **Coexists with other LibStub libraries** and with multiple embedded
   copies of itself (newest minor wins, per LibStub rules).
-- Should also load on other 1.15.x Era-based clients, but it is built
-  and checked against 11507; behavior in the live Forever client is
-  verified by the `/libasyncpriority test` run, not assumed.
+- The code itself only uses APIs that also exist on Classic Era
+  (1.15.x), but the shipped `.toc` declares the Forever interface —
+  embedders targeting Era should set the interface in their own `.toc`.
+  Behavior in the live Forever client is verified by the
+  `/libasyncpriority test` run, not assumed.
 
 ## Files
 
@@ -407,7 +412,7 @@ place.
 |---|---|
 | `LibAsyncPriority-1.0.lua` | The library (under 500 lines). |
 | `LibStub.lua` | Bundled LibStub 1.0, for standalone use. |
-| `LibAsyncPriority-1.0.toc` | Standalone addon metadata, Interface 11507. |
+| `LibAsyncPriority-1.0.toc` | Standalone addon metadata, Interface 16001. |
 | `icon.png` / `Icon.tga` | The addon icon (three priority arrows); the `.tga` is the in-game texture named by the toc's `IconTexture` entry. |
 | `embeds.xml` | Include file for embedding in another addon. |
 | `tests/test_libasyncpriority.lua` | Out-of-game logic checks (Lua 5.1). |
