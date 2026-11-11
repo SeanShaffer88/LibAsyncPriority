@@ -10,6 +10,13 @@ budget (5 ms by default), and any task can be cancelled. Use it embedded in
 your addon through LibStub, or install it standalone. Version **1.0.0**,
 MIT license, no dependencies.
 
+**Docs:** [Features](FEATURES.md) · [Description](DESCRIPTION.md) · [Changelog](CHANGELOG.md)
+
+**Requirements:** a WoW Classic Forever client (Interface **11507**).
+Nothing else — no other addons, no libraries to install first; LibStub is
+bundled for standalone use and steps aside when a newer LibStub is
+already loaded.
+
 ```lua
 local LAP = LibStub("LibAsyncPriority-1.0")
 
@@ -308,6 +315,46 @@ Forever client.)
 - **Keep steps small.** Lua cannot pre-empt a running step. A step that
   itself takes 20 ms will blow the frame no matter what the budget says —
   split the work, not the blame.
+
+## Troubleshooting
+
+- **The addon does not appear in the AddOns list.** The folder name must
+  be exactly `LibAsyncPriority-1.0`, sitting directly in
+  `Interface\AddOns\`, with `LibAsyncPriority-1.0.toc` inside it — not
+  nested in a second folder from unzipping. A brand-new addon also needs
+  a game restart (or a trip back to the character screen), not just
+  `/reload`.
+- **`Cannot find a library instance of "LibAsyncPriority-1.0"`.** The
+  library was not loaded before your addon ran. If you embedded it, check
+  that the `embeds.xml` include (or the `.toc` file lines) comes *before*
+  your addon's own files, and list LibStub before the library file.
+- **`/libasyncpriority test` does nothing.** The standalone addon is not
+  enabled on that character — tick it in the AddOns list. The slash
+  command is registered by whichever copy of the library loads with the
+  slash system available, but the simplest fix is to enable the
+  standalone addon for the test.
+- **An old embedded copy seems to win over a new one.** LibStub keeps the
+  highest minor version it has seen this session; a full `/reload` after
+  updating the files resolves it.
+- **A task runs slower than expected.** Remember the two hard rules: one
+  step per task per frame, and the 5 ms frame budget shared by all
+  tasks. Make each step do a bigger batch, or raise the budget with
+  `SetBudget` — and check `/libasyncpriority stats` to see the real
+  frame times.
+
+## Privacy
+
+None, in the best sense: the library collects nothing, stores nothing
+(no SavedVariables), and talks to nothing. It only runs the tasks other
+addons hand it, in memory, for as long as the game session lasts.
+
+## Screenshots
+
+The library has no windows of its own — its only visible output is the
+chat text from `/libasyncpriority test` and `/libasyncpriority stats`.
+A real capture of that test output from the Forever client will be added
+here after the first in-game run; no placeholder image is used in its
+place.
 
 ## Known limitations
 
