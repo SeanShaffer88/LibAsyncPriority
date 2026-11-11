@@ -1,0 +1,8 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<!-- Embed LibAsyncPriority-1.0 in another addon:
+	     copy LibStub.lua, LibAsyncPriority-1.0.lua and this file into a
+	     libs\LibAsyncPriority-1.0 folder inside your addon, then include
+	     this file from your addon's embeds.xml or .toc. -->
+	<Script file="LibStub.lua"/>
+	<Script file="LibAsyncPriority-1.0.lua"/>
+</Ui>
