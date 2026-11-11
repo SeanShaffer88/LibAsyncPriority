@@ -3,6 +3,15 @@
 All notable changes to LibAsyncPriority are recorded here.
 Format follows Keep a Changelog; versions use semantic versioning.
 
+## [Unreleased]
+
+### Added
+
+- Addon and repo icon: three priority arrows (high in red, normal in
+  amber, low in green) on a dark tile — `icon.png` for the repo, and
+  `Icon.tga` wired through the `.toc` `IconTexture` entry for the
+  in-game AddOns list.
+
 ## [1.0.0] - 2026-11-10
 
 ### Added

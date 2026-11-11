@@ -3,6 +3,7 @@
 ## Notes: Priority-based asynchronous task scheduler with cancellation for addons. Embed via LibStub, or run standalone and use /libasyncpriority test.
 ## Author: Sean Shaffer
 ## Version: 1.0.0
+## IconTexture: Interface\AddOns\LibAsyncPriority-1.0\Icon
 ## Dependencies:
 ## X-Category: Library
 ## X-License: MIT

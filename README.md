@@ -1,5 +1,7 @@
 # LibAsyncPriority
 
+<p align="center"><img src="icon.png" width="160" alt="LibAsyncPriority icon — three priority arrows, high in red, normal in amber, low in green"></p>
+
 ## TL;DR
 
 **LibAsyncPriority-1.0** is a small library for **WoW Classic Forever**
@@ -406,6 +408,7 @@ place.
 | `LibAsyncPriority-1.0.lua` | The library (under 500 lines). |
 | `LibStub.lua` | Bundled LibStub 1.0, for standalone use. |
 | `LibAsyncPriority-1.0.toc` | Standalone addon metadata, Interface 11507. |
+| `icon.png` / `Icon.tga` | The addon icon (three priority arrows); the `.tga` is the in-game texture named by the toc's `IconTexture` entry. |
 | `embeds.xml` | Include file for embedding in another addon. |
 | `tests/test_libasyncpriority.lua` | Out-of-game logic checks (Lua 5.1). |
 | `FEATURES.md` / `DESCRIPTION.md` / `CHANGELOG.md` | Feature list, store-style description, history. |
